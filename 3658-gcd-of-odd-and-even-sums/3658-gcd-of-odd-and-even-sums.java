@@ -1,12 +1,16 @@
 class Solution {
+    int gcd(int n,int m){
+        if(n==0){
+            return 0;
+        }
+        if(m==0){
+            return n;
+        }
+        return gcd(m,n%m);
+    }
     public int gcdOfOddEvenSums(int n) {
         int even=n*(n+1);
         int odd=n*n;
-        while(odd!=0){
-            int rem=even%odd;
-            even=odd;
-            odd=rem;
-        }
-        return even;
+        return gcd(even,odd);
     }
 }
