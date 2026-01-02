@@ -4,11 +4,11 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
-        for(Map.Entry<Integer,Integer> set:map.entrySet()){
-            if(set.getValue()==nums.length/2){
-                return set.getKey();
+       for(int i:map.keySet()){
+            if(map.get(i)==nums.length/2){
+                return i;
             }
-        }
+       }
         return 0;
     }
 }
