@@ -1,0 +1,11 @@
+class Solution {
+    public List<Integer> findPeaks(int[] nums) {
+        List<Integer> result=new ArrayList<>();
+        for(int i=1;i<nums.length-1;i++){
+            if(nums[i-1]<nums[i] && nums[i+1]<nums[i]){
+                result.add(i);
+            }
+        }
+        return result;
+    }
+}
