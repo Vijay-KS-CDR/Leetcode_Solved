@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode cur=head,next=null,prev=null;
+        ListNode prev=null,cur=head,next=null;
         while(cur!=null){
             next=cur.next;
             cur.next=prev;
