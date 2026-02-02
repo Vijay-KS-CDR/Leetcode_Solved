@@ -8,6 +8,11 @@ class Solution {
                 return false;
             }
         }
-        return true;
+        HashSet<Character> set=new HashSet<Character>();
+        for(char ch:map.values()){
+            set.add(ch);
+        }
+
+        return set.size()==map.size();
     }
 }
