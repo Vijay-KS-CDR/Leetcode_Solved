@@ -7,8 +7,8 @@ class Solution {
             List<Integer> prev=lst.get(i-1);
             List<Integer> temp=new ArrayList<>();
             temp.add(1);
-            for(int j=1;j<i;j++){
-                temp.add(prev.get(j-1)+prev.get(j));
+            for(int j=0;j<i-1;j++){
+                temp.add(prev.get(j)+prev.get(j+1));
             }
             temp.add(1);
             lst.add(temp);
