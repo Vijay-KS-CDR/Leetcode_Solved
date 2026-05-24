@@ -9,14 +9,9 @@ class Solution {
             if(freq[i]==0){
                 continue;
             }
-            if(freq[i]>=k){
-                for(int j=0;j<k;j++){
-                    lst.add(i);
-                }
-            }else{
-                while(freq[i]-->0){
+            int min=Math.min(freq[i],k);
+            for(int j=0;j<min;j++){
                 lst.add(i);
-                }
             }
         }
         int[] ans=new int[lst.size()];
