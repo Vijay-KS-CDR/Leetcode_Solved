@@ -12,15 +12,14 @@ class Solution {
     public ListNode deleteMiddle(ListNode head) {
         ListNode slow=head;
         ListNode fast=head;
+        ListNode prev=null;
         if(head.next==null || head==null) return null;
         while(fast!=null && fast.next!=null){
+            prev=slow;
             slow=slow.next;
             fast=fast.next.next;
         }
-        ListNode prev=head;
-        while(prev!=null && prev.next!=slow){
-            prev=prev.next;
-        }
+        
         prev.next=slow.next;
         return head;
     }
