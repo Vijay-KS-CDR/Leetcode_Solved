@@ -14,7 +14,7 @@ class Solution {
                 continue;
             }
 
-            while(!stk.isEmpty() && stk.peek()>ch && last[stk.peek()-'a']>i){
+            while(!stk.isEmpty() && stk.peek()>ch && last[stk.peek()-'a']>=i){
                 char sh=stk.pop();
                 seen[sh-'a']=false;
             }
