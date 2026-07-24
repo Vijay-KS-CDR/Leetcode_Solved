@@ -12,18 +12,14 @@ class Solution {
     public ListNode mergeNodes(ListNode head) {
        ListNode fin=new ListNode(0);
        ListNode ans=fin;
-        boolean first = false;
+        boolean first = true;
         boolean second = false;
         int sum=0;
+        head=head.next;
         while(head!=null){
             sum+=head.val;
             if(head.val==0){
-                if(first==true){
-                    second=true;
-                }
-                else{
-                    first=true;
-                }
+               second=true;
             }
             if(first && second){
                 ans.next=new ListNode(sum);
