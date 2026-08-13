@@ -14,28 +14,27 @@
  * }
  */
 class Solution {
-    int height(TreeNode root){
-        if(root==null){
-            return 0;
+    int ans;
+    int max;
+    void longestBottom(TreeNode root,int dis){
+        if(root == null){
+            return ;
         }
-        return 1+Math.max(height(root.left),height(root.right));
+        if(root.left==null && root.right==null){
+            if(dis>max || dis == 0){
+                ans=root.val;
+                System.out.println(ans);
+                max=dis;
+            }
+            return;
+        }
+        longestBottom(root.left,dis+1);
+        longestBottom(root.right,dis+1);
     }
     public int findBottomLeftValue(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
-        int lev=height(root);
-        q.add(root);
-        while(!q.isEmpty()){
-            int size = q.size();
-            for(int i=0;i<size;i++){
-                TreeNode node = q.poll();
-                if(lev==1){
-                    return node.val;
-                }
-                if(node.left!=null) q.add(node.left);
-                if(node.right!=null) q.add(node.right);
-            }
-            lev--;
-        }
-        return 0;
+        max=0;
+        ans=0;
+        longestBottom(root,0);
+        return ans;
     }
 }
