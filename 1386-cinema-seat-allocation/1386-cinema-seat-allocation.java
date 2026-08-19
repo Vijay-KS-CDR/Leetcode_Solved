@@ -11,15 +11,11 @@ class Solution {
             int temp=0;
             if(!lst.contains(2) && !lst.contains(3) && !lst.contains(4) && !lst.contains(5)){
                 temp++;
-                lst.add(2);
-                lst.add(3);
                 lst.add(4);
                 lst.add(5);
             }
             if(!lst.contains(4) && !lst.contains(5) && !lst.contains(6) && !lst.contains(7)){
                 temp++;
-                lst.add(4);
-                lst.add(5);
                 lst.add(6);
                 lst.add(7);
             }
