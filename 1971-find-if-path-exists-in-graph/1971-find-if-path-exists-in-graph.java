@@ -12,11 +12,12 @@ class Solution {
         q.add(src);
         boolean seen[]=new boolean[n];
         seen[src]=true;
+        if(src==des) return true;
         while(!q.isEmpty()){
             int s = q.poll();
-            if(s==des) return true;
             for(int i:adj.get(s)){
                 if(seen[i]) continue;
+                if(i==des) return true;
                 seen[i]=true;
                 q.add(i);
             }
