@@ -9,6 +9,10 @@ class Solution {
                 ones++;
             }
             while(ones==k){
+                while(l<i && s.charAt(l)=='0'){
+                    l++;
+                }
+
                 String temp = s.substring(l,i+1);
                 int low = i-l+1;
 
@@ -25,18 +29,6 @@ class Solution {
                 l++;
             }
         }
-        StringBuilder sb = new StringBuilder();
-        boolean hi=false;
-        for(int i=0;i<ans.length();i++){
-            if(ans.charAt(i)=='1' && !hi){
-                hi=true;
-            }
-            if(!hi){
-                continue;
-            }
-            sb.append(ans.charAt(i));
-        }
-
-        return sb.toString();
+          return ans;
     }
 }
