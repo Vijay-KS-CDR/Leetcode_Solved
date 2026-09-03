@@ -9,14 +9,8 @@ class Solution {
                 if(minOdd>nums[i]) minOdd=nums[i];
             }
         }
-        if(minEven==(int)1e9){
-            minEven=0;
-        }
-         if(minOdd==(int)1e9){
-            minOdd=0;
-        }
-        System.out.println(minEven+" "+minOdd);
-        if(minOdd==0 || minEven==0) return true;
+        int c=(int)1e9;
+        if(minOdd==c || minEven==c) return true;
         return ((minEven-minOdd)>0)?true:false;
     }
 }
