@@ -1,27 +1,28 @@
 class Solution {
     public int firstStableIndex(int[] nums, int k) {
-        int max[]=new int[nums.length];
-        int min[]=new int[nums.length];
-        max[0]=nums[0];
-        min[nums.length-1]=nums[nums.length-1];
-        int temp1=max[0];
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]>temp1){
-                temp1=nums[i];
+        int prefix[]=new int[nums.length];
+        int suffix[]=new int[nums.length];
+        int n=nums.length;
+        prefix[0]=nums[0];
+        for(int i=1;i<n;i++){
+            if(prefix[i-1]<nums[i]){
+                prefix[i]=nums[i];
+            }else{
+                prefix[i]=prefix[i-1];
             }
-            max[i]=temp1;
         }
-        int temp2=min[nums.length-1];
-        for(int i=nums.length-2;i>=0;i--){
-            if(nums[i]<temp2){
-                temp2=nums[i];
+        suffix[n-1]=nums[n-1];
+        for(int i=n-2;i>=0;i--){
+            if(suffix[i+1]>nums[i]){
+                suffix[i]=nums[i];
             }
-            min[i]=temp2;
+            else{
+                suffix[i]=suffix[i+1];
+            }
         }
-        for(int i=0;i<nums.length;i++){
-            if(max[i]-min[i] <=k){
-                return i;
-            }
+        for(int i=0;i<n;i++){
+            int sum = prefix[i]-suffix[i];
+            if(sum<=k) return i;
         }
         return -1;
     }
