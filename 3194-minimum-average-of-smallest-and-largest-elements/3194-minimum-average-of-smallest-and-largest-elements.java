@@ -8,7 +8,6 @@ class Solution {
             if(temp<ans){
                 ans = temp;
             }
-            System.out.println(nums[l]+" "+nums[r]+" "+temp);
             l++;
             r--;
         }
