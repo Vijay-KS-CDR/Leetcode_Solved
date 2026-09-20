@@ -1,9 +1,11 @@
 class Solution {
-    public int reverseDegree(String str) {
-        int sum=0;
-        for(int i=0;i<str.length();i++){
-            sum+=(1+i)*(26-(str.charAt(i)-'a'));
+    public int reverseDegree(String s) {
+        int ans = 0;
+        int i=1;
+        for(char ch : s.toCharArray()){
+            ans+=i*(26-((ch-'a')));
+            i++;
         }
-        return sum;
+        return ans;
     }
 }
