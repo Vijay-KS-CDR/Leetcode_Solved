@@ -1,17 +1,15 @@
 class Solution {
-    int digitsum(int n){
-        int sum=0;
-        while(n!=0){
-            sum+=(n%10);
+    private int sum(int n ){
+        int s=0;
+        while(n>0){
+            s+=n%10;
             n=n/10;
         }
-        return sum;
+        return s;
     }
     public int smallestIndex(int[] nums) {
         for(int i=0;i<nums.length;i++){
-            if(digitsum(nums[i])==i){
-                return i;
-            }
+            if(i==sum(nums[i])) return i;
         }
         return -1;
     }
