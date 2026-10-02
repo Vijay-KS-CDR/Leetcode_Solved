@@ -1,24 +1,23 @@
 class Solution {
-    List<String> lst = new ArrayList<>();
-    void generate(int open,int close,int n,StringBuilder sb){
-        if(sb.length()==2*n){
+    void generate(List<String> lst,int open,int close,int n,StringBuilder sb){
+        if(sb.length()==n){
             lst.add(sb.toString());
             return;
         }
-        if(open<n){
+        if(open<n/2){
             sb.append("(");
-            generate(open+1,close,n,sb);
+            generate(lst,open+1,close,n,sb);
             sb.deleteCharAt(sb.length()-1);
         }
-        if(open>close){
+        if(close<open){
             sb.append(")");
-            generate(open,close+1,n,sb);
+            generate(lst,open,close+1,n,sb);
             sb.deleteCharAt(sb.length()-1);
         }
     }
     public List<String> generateParenthesis(int n) {
-        lst.clear();
-        generate(0,0,n,new StringBuilder());
+        List<String> lst = new ArrayList<>();
+        generate(lst,0,0,2*n,new StringBuilder());
         return lst;
     }
 }
