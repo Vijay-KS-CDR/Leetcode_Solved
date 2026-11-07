@@ -5,14 +5,12 @@ class Solution {
         paragraph = paragraph.toLowerCase();
         String []arr=paragraph.split("\\s+");
         int max = Integer.MIN_VALUE;
+        HashSet<String> set = new HashSet(Arrays.asList(banned));
         for(String a:arr){
+            if(set.contains(a)) continue;
             map.put(a,map.getOrDefault(a,0)+1);
         } 
-        for(String a:banned){
-            if(map.containsKey(a)){
-                map.remove(a);
-            }
-        }
+        
         String ans = "";
         for(String a:map.keySet()){
            if(max<map.get(a)){
