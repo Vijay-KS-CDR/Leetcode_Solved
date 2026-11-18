@@ -1,6 +1,6 @@
 class Solution {
     public List<List<String>> findMismatchedSegments(String s1, String s2) {
-        List<List<String>> ans = new ArrayList<>();
+        List<List<String>>ans = new ArrayList<>();
         for(int i=0;i<s1.length();i++){
             List<String> lst = new ArrayList<>();
             if(s1.charAt(i)==s2.charAt(i)) continue;
